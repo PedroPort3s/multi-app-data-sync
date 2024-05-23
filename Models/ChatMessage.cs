@@ -8,7 +8,7 @@
 
         public override string ToString()
         {
-            return $"{Sender} says: {Content}\n{Timestamp}";
+            return $"{Sender} says: {Content}";
         }
     }
 }
