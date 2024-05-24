@@ -1,4 +1,6 @@
 
+using Infrastructure.Services;
+
 namespace WebServer
 {
     public class Program
@@ -15,6 +17,14 @@ namespace WebServer
             builder.Services.AddSwaggerGen();
             builder.Services.AddSignalR();
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    builder => builder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -23,6 +33,8 @@ namespace WebServer
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseCors("AllowAll");
 
             app.UseHttpsRedirection();
 
