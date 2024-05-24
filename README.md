@@ -1,5 +1,5 @@
 
-# Small Chat Application (WinForm & WebBlazor Clients)
+# Chat Application (WinForm & WebBlazor Clients)
 This repository contains the source code for a small chat application that demonstrates communication between clients and a server using SignalR.
 
 ## Project Structure
@@ -13,8 +13,7 @@ The project is divided into several sub-projects:
 ### Infrastructure
 * Defines commonly used external dependencies between projects.
 ### Models
-* Common domain models that are shared with other projects
-* 
+* Common domain models that are shared with other projects* 
 
 ## Get Started
 
