@@ -38,6 +38,7 @@
             txtInput = new TextBox();
             btnSubmit = new Button();
             btnDisconnect = new Button();
+            btnNewInstance = new Button();
             pnlInputOutput.SuspendLayout();
             SuspendLayout();
             // 
@@ -77,7 +78,7 @@
             pnlInputOutput.Dock = DockStyle.Bottom;
             pnlInputOutput.Location = new Point(0, 53);
             pnlInputOutput.Name = "pnlInputOutput";
-            pnlInputOutput.Size = new Size(435, 376);
+            pnlInputOutput.Size = new Size(507, 376);
             pnlInputOutput.TabIndex = 10;
             // 
             // listBoxOutput
@@ -136,11 +137,22 @@
             btnDisconnect.UseVisualStyleBackColor = true;
             btnDisconnect.Click += btnDisconnect_Click;
             // 
+            // btnNewInstance
+            // 
+            btnNewInstance.Location = new Point(395, 24);
+            btnNewInstance.Name = "btnNewInstance";
+            btnNewInstance.Size = new Size(93, 23);
+            btnNewInstance.TabIndex = 12;
+            btnNewInstance.Text = "New Instance";
+            btnNewInstance.UseVisualStyleBackColor = true;
+            btnNewInstance.Click += btnNewInstance_Click;
+            // 
             // FormInputOutput
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(435, 429);
+            ClientSize = new Size(507, 429);
+            Controls.Add(btnNewInstance);
             Controls.Add(btnDisconnect);
             Controls.Add(pnlInputOutput);
             Controls.Add(lbServerIp);
@@ -171,5 +183,6 @@
         private Button btnSubmit;
         private ListBox listBoxOutput;
         private Button btnDisconnect;
+        private Button btnNewInstance;
     }
 }

@@ -147,5 +147,12 @@ namespace WinForm
             await DisconnectAsync();
             MessageBox.Show($"Disconnected successfully from the server!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void btnNewInstance_Click(object sender, EventArgs e)
+        {
+            FormInputOutput formInputOutput = new FormInputOutput();
+
+            formInputOutput.Show();
+        }
     }
 }
