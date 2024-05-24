@@ -7,6 +7,7 @@
 
 @inject IChatService ChatService
 
+
 <PageTitle>Input and Output</PageTitle>
 
 <div class="container">
@@ -82,6 +83,7 @@
     private async Task InitializeServerConnectionAsync()
     {
         _senderUserName = "WebBlazor-" + Guid.NewGuid().ToString().Substring(0, 7);
+
         string serverAddress = "https://localhost:7181/chat";
 
         await ChatService.ConnectAsync(serverAddress);
