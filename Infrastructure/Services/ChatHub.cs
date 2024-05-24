@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using Microsoft.Extensions.Logging;
 using Models;
 using System.Net.Sockets;
 
-namespace WebServer
+namespace Infrastructure.Services
 {
     public class ChatHub : Hub
     {
