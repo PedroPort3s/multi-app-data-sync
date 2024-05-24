@@ -1,7 +1,6 @@
-using WebBlazor.Client.Pages;
+using Infrastructure.Interfaces;
+using Infrastructure.Services;
 using WebBlazor.Components;
-using WebBlazor.Infrastructure.Interfaces;
-using WebBlazor.Infrastructure.Services;
 
 namespace WebBlazor
 {
@@ -15,9 +14,7 @@ namespace WebBlazor
             builder.Services.AddRazorComponents()
                 .AddInteractiveWebAssemblyComponents();
 
-            builder.Services.AddScoped<IChatService, ChatService>();
-
-            builder.Services.AddSignalR();
+            builder.Services.AddTransient<IChatService, ChatService>();
 
             var app = builder.Build();
 
