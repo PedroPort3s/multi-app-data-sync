@@ -117,6 +117,7 @@ namespace WinForm
             pnlInputOutput.Enabled = shouldBeEnabled;
             btnDisconnect.Enabled = shouldBeEnabled;
             btnConnect.Enabled = !shouldBeEnabled;
+            txtServerAddress.ReadOnly = shouldBeEnabled;
 
             if (!shouldBeEnabled)
             {

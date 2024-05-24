@@ -88,7 +88,7 @@
             listBoxOutput.ItemHeight = 15;
             listBoxOutput.Location = new Point(36, 133);
             listBoxOutput.Name = "listBoxOutput";
-            listBoxOutput.Size = new Size(353, 214);
+            listBoxOutput.Size = new Size(452, 214);
             listBoxOutput.TabIndex = 11;
             // 
             // lbOutput
@@ -114,12 +114,12 @@
             txtInput.Location = new Point(36, 31);
             txtInput.Multiline = true;
             txtInput.Name = "txtInput";
-            txtInput.Size = new Size(353, 59);
+            txtInput.Size = new Size(452, 59);
             txtInput.TabIndex = 6;
             // 
             // btnSubmit
             // 
-            btnSubmit.Location = new Point(314, 96);
+            btnSubmit.Location = new Point(413, 96);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(75, 23);
             btnSubmit.TabIndex = 5;
