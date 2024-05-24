@@ -1,0 +1,117 @@
+﻿@page "/chat"
+@rendermode InteractiveWebAssembly
+
+@using Infrastructure.Interfaces
+@using Microsoft.AspNetCore.SignalR.Client
+@using Models
+
+@inject IChatService ChatService
+
+<PageTitle>Input and Output</PageTitle>
+
+<div class="container">
+
+    <h1>Small chat</h1>
+
+    <div class="row">
+        <div class="col-6">
+            <label for="txtInput" class="form-label">Input</label>
+            <input @bind-value="_inputText" class="form-control" id="txtInput" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-primary" @onclick="SubmitTextInput">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(_connectedAddress))
+    {
+        <div class="row">
+            <p role="status">Connected with @_connectedAddress</p>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-6">
+            <ul class="list-group list-group-flush">
+                @foreach (ChatMessage message in _messages)
+                {
+                    <li class="list-group-item">@message.ToString()</li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(_errorMessage))
+    {
+        <div class="alert alert-error alert-dismissible fade show" role="alert">
+            <strong>An unexpected error has ocurred!</strong> @_errorMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+</div>
+
+@code {
+    private string _errorMessage = string.Empty;
+    private string _inputText;
+    private string _connectedAddress = string.Empty;
+    private string _senderUserName = string.Empty;
+    private List<ChatMessage> _messages = new List<ChatMessage>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _senderUserName = "WebBlazor-" + Guid.NewGuid().ToString().Substring(0, 7);
+
+        string serverAddress = "https://localhost:7181/chat";
+
+        await ChatService.ConnectAsync(serverAddress);
+
+        _connectedAddress = serverAddress;
+
+        await ChatService.OnReceiveMessage((message) =>
+        {
+            _messages.Add(message);
+            StateHasChanged();
+        });
+    }
+
+    private async Task InitializeServerConnectionAsync()
+    {
+        _senderUserName = "WebBlazor-" + Guid.NewGuid().ToString().Substring(0, 7);
+        string serverAddress = "https://localhost:7181/chat";
+
+        await ChatService.ConnectAsync(serverAddress);
+
+        _connectedAddress = serverAddress;
+
+        await ChatService.OnReceiveMessage((message) =>
+        {
+            _messages.Add(message);
+            StateHasChanged();
+        });
+    }
+
+    private async Task SubmitTextInput()
+    {
+        try
+        {
+            if (string.IsNullOrEmpty(_inputText))
+            {
+                return;
+            }
+
+            await ChatService.SendMessageAsync(_senderUserName, _inputText);
+
+            _inputText = string.Empty;
+            StateHasChanged();
+        }
+        catch (Exception e)
+        {
+            _errorMessage = e.Message;
+        }
+    }
+}

@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBlazor", "WebBlazor\WebB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBlazor.Client", "WebBlazor\WebBlazor.Client\WebBlazor.Client.csproj", "{ED86C62B-2986-4B88-B074-1B9D72B7D47A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{6FAF16C1-E5F1-4C6A-AADB-CCA5C78FD64D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{ED86C62B-2986-4B88-B074-1B9D72B7D47A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED86C62B-2986-4B88-B074-1B9D72B7D47A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED86C62B-2986-4B88-B074-1B9D72B7D47A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FAF16C1-E5F1-4C6A-AADB-CCA5C78FD64D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FAF16C1-E5F1-4C6A-AADB-CCA5C78FD64D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FAF16C1-E5F1-4C6A-AADB-CCA5C78FD64D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FAF16C1-E5F1-4C6A-AADB-CCA5C78FD64D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
